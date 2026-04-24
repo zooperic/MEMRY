@@ -1,0 +1,12 @@
+# Environment files
+.env
+.env.local
+.env.*
+*.env
+memry-web/.env.local
+
+# Node/yarn/PNPM (if relevant)
+node_modules/
+dist/
+build/
+.next/
