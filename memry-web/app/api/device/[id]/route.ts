@@ -65,7 +65,7 @@ export async function GET(
   // ── 4. Get active photo ───────────────────────────────────────
   const { data: photo, error: photoErr } = await supabase
     .from('photos')
-    .select('id, processed_path')
+    .select('id, storage_path')
     .eq('device_id', deviceId)
     .eq('is_active', true)
     .single()
@@ -96,7 +96,7 @@ export async function GET(
   // ── 6. Download 4bpp binary from storage ─────────────────────
   const { data: blob, error: dlErr } = await supabase.storage
     .from('photos')
-    .download(photo.processed_path)
+    .download(photo.storage_path)
 
   if (dlErr || !blob) {
     console.error('[device-api] Storage download failed', dlErr)

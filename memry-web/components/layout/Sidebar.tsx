@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import ThemeToggle from './ThemeToggle'
 import { usePathname } from 'next/navigation'
 
 const NAV = [
@@ -21,7 +22,7 @@ export default function Sidebar({ userName = 'You', userInitial = 'A' }: Sidebar
     href === '/dashboard' ? path === href : path.startsWith(href)
 
   return (
-    <aside style={{ width: 220, flexShrink: 0, background: 'var(--dark)', display: 'flex', flexDirection: 'column', position: 'fixed', top: 0, left: 0, bottom: 0, zIndex: 100, borderRight: '1px solid rgba(255,255,255,0.04)' }}>
+    <aside className="memry-sidebar" style={{ width: 220, flexShrink: 0, background: 'var(--dark)', display: 'flex', flexDirection: 'column', position: 'fixed', top: 0, left: 0, bottom: 0, zIndex: 100, borderRight: '1px solid rgba(255,255,255,0.04)' }}>
       <div style={{ padding: '24px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <div style={{ width: 72, height: 20, border: '1px dashed rgba(255,255,255,0.1)', borderRadius: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'DM Mono, monospace', fontSize: 7, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.18)', marginBottom: 20 }}>
           [ logo ]
@@ -53,8 +54,9 @@ export default function Sidebar({ userName = 'You', userInitial = 'A' }: Sidebar
             <SignOutIcon /> Sign out
           </button>
         </form>
-        <div style={{ fontFamily: 'DM Mono, monospace', fontSize: 7, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.1)', marginTop: 8 }}>
-          mem.ry · v1.0 · Pune
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 8 }}>
+          <div style={{ fontFamily: 'DM Mono, monospace', fontSize: 7, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.1)' }}>mem.ry · v1.0</div>
+          <ThemeToggle variant="dark" />
         </div>
       </div>
     </aside>

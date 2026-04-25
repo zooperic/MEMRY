@@ -51,7 +51,7 @@ export default function SettingsPage() {
             004 — settings
           </div>
           <h1 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 48, fontWeight: 300, lineHeight: 0.95, letterSpacing: '-1.5px' }}>
-            Acc<em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>o</em>unt
+            Acc<em style={{ fontStyle: 'italic' }}>o</em>unt
           </h1>
         </div>
 

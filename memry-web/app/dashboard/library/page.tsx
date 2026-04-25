@@ -125,14 +125,14 @@ function LibraryInner() {
         }
       />
 
-      <div style={{ padding: '32px 40px' }}>
+      <div style={{ padding: '32px', maxWidth: 1400, margin: '0 auto', width: '100%' }}>
 
         {/* Page header */}
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 28, paddingBottom: 24, borderBottom: '1px solid var(--border)' }}>
           <div>
             <div style={{ fontFamily: 'DM Mono, monospace', fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--rust)', marginBottom: 6 }}>003 — library</div>
             <h1 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 52, fontWeight: 300, lineHeight: 0.95, letterSpacing: '-1.5px' }}>
-              Ph<em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>ot</em>o<br />Library
+              Ph<em style={{ fontStyle: 'italic' }}>ot</em>o<br />Library
             </h1>
           </div>
           <div style={{ textAlign: 'right' }}>
@@ -173,7 +173,7 @@ function LibraryInner() {
             {Array.from({ length: 8 }).map((_, i) => (
               <div key={i} style={{ background: 'var(--paper)', border: '1px solid var(--border)', height: 230, animation: 'pulse 1.5s ease-in-out infinite', animationDelay: `${i * 0.1}s` }} />
             ))}
-            <style>{`@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }`}</style>
+            <style dangerouslySetInnerHTML={{ __html: `@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }` }} />
           </div>
         )}
 
@@ -300,13 +300,12 @@ function LibraryInner() {
             {/* Empty state */}
             {displayed.length === 0 && !loading && (
               <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '80px 40px' }}>
-                <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 32, fontWeight: 300, fontStyle: 'italic', color: 'var(--muted)', marginBottom: 16 }}>
-                  N<em style={{ color: 'var(--rust)' }}>o</em> photos yet
+                <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 32, fontWeight: 300, fontStyle: 'italic', color: 'var(--muted)', marginBottom: 12 }}>
+                  No photos yet
                 </div>
-                <p style={{ fontSize: 13, color: 'var(--muted-lt)', fontWeight: 300, marginBottom: 24 }}>
+                <p style={{ fontSize: 13, color: 'var(--muted-lt)', fontWeight: 300 }}>
                   Upload your first photo to get it on the fridge.
                 </p>
-                <Link href="/dashboard/upload" className="btn-dark">↑ Upload first photo</Link>
               </div>
             )}
           </div>

@@ -55,7 +55,7 @@ export default function DashboardGrid({
     name,
 }: DashboardGridProps) {
     return (
-        <div style={{ padding: "32px 40px" }}>
+        <div style={{ padding: "32px", maxWidth: 1400, margin: "0 auto", width: "100%" }}>
             {/* Page header */}
             <div
                 style={{
@@ -90,7 +90,7 @@ export default function DashboardGrid({
                         }}
                     >
                         {greeting},<br />
-                        <em style={{ fontStyle: "italic", color: "var(--rust)" }}>{name}.</em>
+                        <em style={{ fontStyle: "italic" }}>{name}.</em>
                     </h1>
                 </div>
                 <div style={{ textAlign: "right" }}>

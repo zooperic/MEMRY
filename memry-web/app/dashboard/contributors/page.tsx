@@ -90,7 +90,7 @@ export default function ContributorsPage() {
           <div>
             <div style={{ fontFamily: 'DM Mono, monospace', fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--rust)', marginBottom: 6 }}>004 — contributors</div>
             <h1 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 52, fontWeight: 300, lineHeight: 0.95, letterSpacing: '-1.5px' }}>
-              C<em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>o</em>ntrib<br /><em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>u</em>t<em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>o</em>rs
+              C<em style={{ fontStyle: 'italic' }}>o</em>ntrib<br /><em style={{ fontStyle: 'italic' }}>u</em>t<em style={{ fontStyle: 'italic' }}>o</em>rs
             </h1>
           </div>
           <div style={{ fontSize: 12, color: 'var(--muted)', fontWeight: 300, maxWidth: 280, textAlign: 'right', lineHeight: 1.6 }}>

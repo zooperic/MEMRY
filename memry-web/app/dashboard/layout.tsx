@@ -13,7 +13,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
   return (
     <div style={{ display: 'flex', minHeight: '100vh' }}>
       <Sidebar userName={name} userInitial={initial} />
-      <div style={{ marginLeft: 220, flex: 1, display: 'flex', flexDirection: 'column' }}>
+      <div className="memry-main" style={{ marginLeft: 220, minHeight: "100vh" }}>
         {children}
       </div>
     </div>

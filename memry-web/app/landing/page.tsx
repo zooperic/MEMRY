@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import ThemeToggle from '@/components/layout/ThemeToggle'
 
 // ── 3D POLAROID HOOK ──────────────────────────────────────────
 function usePolaroid3D() {
@@ -146,11 +147,14 @@ export default function LandingPage() {
           >
             Sign in →
           </Link>
+          <div style={{ display: 'flex', alignItems: 'center', padding: '0 16px', borderLeft: '1px solid var(--border)' }}>
+            <ThemeToggle />
+          </div>
         </div>
       </nav>
 
       {/* ── HERO ── */}
-      <section style={{ minHeight: '100vh', display: 'grid', gridTemplateColumns: '1fr 1fr', paddingTop: 56 }}>
+      <section className="memry-hero" style={{ minHeight: '100vh', display: 'grid', gridTemplateColumns: '1fr 1fr', paddingTop: 56 }}>
 
         {/* Left */}
         <div style={{ padding: '80px 60px 80px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center', borderRight: '1px solid var(--border)' }}>
@@ -161,8 +165,8 @@ export default function LandingPage() {
 
           <h1 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(64px, 7vw, 96px)', fontWeight: 300, lineHeight: 0.92, letterSpacing: '-2px', marginBottom: 32 }}>
             A digital<br />
-            sh<em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>o</em>wr<em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>oo</em>m<br />
-            f<em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>o</em>r mem<em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>o</em>ries
+            sh<em style={{ fontStyle: 'italic' }}>o</em>wr<em style={{ fontStyle: 'italic' }}>oo</em>m<br />
+            f<em style={{ fontStyle: 'italic' }}>o</em>r mem<em style={{ fontStyle: 'italic' }}>o</em>ries
           </h1>
 
           <p style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--muted)', fontWeight: 300, maxWidth: 340, marginBottom: 48 }}>
@@ -239,7 +243,7 @@ export default function LandingPage() {
           <div style={{ padding: '60px 40px', borderRight: '1px solid var(--border)' }}>
             <span style={{ fontFamily: 'DM Mono, monospace', fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--muted)', display: 'block', marginBottom: 16 }}>002 — process</span>
             <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 300, lineHeight: 1, letterSpacing: '-1.5px' }}>
-              H<em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>o</em>w it<br />w<em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>o</em>rks
+              H<em style={{ fontStyle: 'italic' }}>o</em>w it<br />w<em style={{ fontStyle: 'italic' }}>o</em>rks
             </h2>
           </div>
           <div style={{ padding: '60px 40px', display: 'flex', alignItems: 'flex-end' }}>
@@ -252,9 +256,9 @@ export default function LandingPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }}>
           {[
             { n: '01', title: <>Pair<br />the device</>, body: 'Enter the ID printed inside the shell. Name it and you\'re done.', icon: <path d="M12 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>, icon2: <polyline points="14 2 14 8 20 8"/> },
-            { n: '02', title: <>Upl<em style={{fontStyle:'italic',color:'var(--rust)'}}>o</em>ad<br />a ph<em style={{fontStyle:'italic',color:'var(--rust)'}}>o</em>t<em style={{fontStyle:'italic',color:'var(--rust)'}}>o</em></>, body: 'Drop any image. A live Polaroid preview shows the 6-color render before it goes live.', icon: <><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></> },
+            { n: '02', title: <>Upl<em style={{fontStyle:'italic'}}>o</em>ad<br />a ph<em style={{fontStyle:'italic'}}>o</em>t<em style={{fontStyle:'italic'}}>o</em></>, body: 'Drop any image. A live Polaroid preview shows the 6-color render before it goes live.', icon: <><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></> },
             { n: '03', title: <>It just<br />appears</>, body: 'The device wakes, fetches over WiFi, renders to e-ink in ~19 seconds, then sleeps for hours.', icon: <><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></> },
-            { n: '04', title: <>Invite<br />c<em style={{fontStyle:'italic',color:'var(--rust)'}}>o</em>ntrib<br /><em style={{fontStyle:'italic',color:'var(--rust)'}}>u</em>t<em style={{fontStyle:'italic',color:'var(--rust)'}}>o</em>rs</>, body: 'Friends and family upload directly. You curate. Everyone sees the same fridge.', icon: <><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></> },
+            { n: '04', title: <>Invite<br />c<em style={{fontStyle:'italic'}}>o</em>ntrib<br /><em style={{fontStyle:'italic'}}>u</em>t<em style={{fontStyle:'italic'}}>o</em>rs</>, body: 'Friends and family upload directly. You curate. Everyone sees the same fridge.', icon: <><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></> },
           ].map((step, i) => (
             <div key={i} style={{ padding: '40px 32px', borderRight: i < 3 ? '1px solid var(--border)' : 'none', borderBottom: '1px solid var(--border)' }}>
               <span style={{ fontFamily: 'DM Mono, monospace', fontSize: 8, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--rust)', display: 'block', marginBottom: 24 }}>{step.n}</span>
@@ -274,8 +278,8 @@ export default function LandingPage() {
           <span style={{ fontFamily: 'DM Mono, monospace', fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--sand)', display: 'block', marginBottom: 32 }}>003 — the device</span>
           <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(40px, 5vw, 68px)', fontWeight: 300, lineHeight: 1.0, letterSpacing: '-2px', marginBottom: 32 }}>
             Built<br />
-            t<em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>o</em> live<br />
-            <span style={{ WebkitTextStroke: '1px rgba(242,237,228,0.4)', color: 'transparent' }}>f<em style={{ fontStyle: 'italic', color: 'transparent', WebkitTextStroke: '1px var(--rust)' }}>o</em>rever</span>
+            t<em style={{ fontStyle: 'italic' }}>o</em> live<br />
+            f<em style={{ fontStyle: 'italic' }}>o</em>rever
           </h2>
           <p style={{ fontSize: 14, lineHeight: 1.75, color: 'rgba(242,237,228,0.5)', fontWeight: 300, marginBottom: 40 }}>
             A two-piece 3D-printed Polaroid shell housing a Waveshare Spectra 6 e-ink display, an ESP32C3 microcontroller, and a 300mAh LiPo. Sealed with silicone, held by N52 neodymium magnets, charged by USB-C.
@@ -318,7 +322,7 @@ export default function LandingPage() {
         <div style={{ padding: '40px', borderRight: '1px solid var(--border)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div>
             <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 28, fontWeight: 300, fontStyle: 'italic', letterSpacing: '-0.5px', marginBottom: 8 }}>
-              Mem<em style={{ color: 'var(--rust)' }}>.</em>ry
+              Mem.ry
             </div>
             <div style={{ fontSize: 11, color: 'var(--muted)', fontWeight: 300 }}>A digital showroom for memories</div>
           </div>
@@ -330,21 +334,21 @@ export default function LandingPage() {
           <div>
             <div style={{ fontFamily: 'DM Mono, monospace', fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 16 }}>Ready to start?</div>
             <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 32, fontWeight: 300, lineHeight: 1.1, letterSpacing: '-0.5px', marginBottom: 24 }}>
-              Put a mem<em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>o</em>ry<br />on the fridge.
+              Put a mem<em style={{ fontStyle: 'italic' }}>o</em>ry<br />on the fridge.
             </div>
             <Link href="/auth" className="btn-dark">Request early access</Link>
           </div>
         </div>
       </footer>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (max-width: 700px) {
           nav { padding: 0 20px; }
           section { grid-template-columns: 1fr !important; }
           #how > div { grid-template-columns: 1fr 1fr !important; }
           footer { grid-template-columns: 1fr !important; }
         }
-      `}</style>
+      ` }} />
     </div>
   )
 }

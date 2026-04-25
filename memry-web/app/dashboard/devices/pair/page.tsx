@@ -119,7 +119,7 @@ export default function PairPage() {
             <div>
               <div style={{ fontFamily: 'DM Mono, monospace', fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--rust)', marginBottom: 10 }}>001 — pair device</div>
               <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 48, fontWeight: 300, lineHeight: 0.95, letterSpacing: '-1.5px', marginBottom: 10 }}>
-                Enter<br />device <em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>ID</em>
+                Enter<br />device <em style={{ fontStyle: 'italic' }}>ID</em>
               </h2>
               <p style={{ fontSize: 13, color: 'var(--muted)', fontWeight: 300, marginBottom: 40, lineHeight: 1.6 }}>
                 Find the 3-digit ID on the sticker inside the back panel of your MEMRY device.
@@ -164,7 +164,7 @@ export default function PairPage() {
             <div>
               <div style={{ fontFamily: 'DM Mono, monospace', fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--rust)', marginBottom: 10 }}>002 — name it</div>
               <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 48, fontWeight: 300, lineHeight: 0.95, letterSpacing: '-1.5px', marginBottom: 10 }}>
-                Give it<br />a <em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>name</em>
+                Give it<br />a <em style={{ fontStyle: 'italic' }}>name</em>
               </h2>
               <p style={{ fontSize: 13, color: 'var(--muted)', fontWeight: 300, marginBottom: 40, lineHeight: 1.6 }}>
                 Where will this MEMRY live? You&apos;ll see this on your dashboard.
@@ -228,7 +228,7 @@ export default function PairPage() {
             <div>
               <div style={{ fontFamily: 'DM Mono, monospace', fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--rust)', marginBottom: 10 }}>003 — confirm</div>
               <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 48, fontWeight: 300, lineHeight: 0.95, letterSpacing: '-1.5px', marginBottom: 10 }}>
-                All<br />l<em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>oo</em>ks<br />g<em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>oo</em>d
+                All<br />l<em style={{ fontStyle: 'italic' }}>oo</em>ks<br />g<em style={{ fontStyle: 'italic' }}>oo</em>d
               </h2>
               <p style={{ fontSize: 13, color: 'var(--muted)', fontWeight: 300, marginBottom: 40, lineHeight: 1.6 }}>
                 Confirm the details below. Once paired, the device will appear on your dashboard.
@@ -268,7 +268,7 @@ export default function PairPage() {
               </div>
               <div style={{ fontFamily: 'DM Mono, monospace', fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--rust)', marginBottom: 8 }}>Paired successfully</div>
               <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 48, fontWeight: 300, lineHeight: 0.95, letterSpacing: '-1.5px', marginBottom: 16 }}>
-                Device<br />is <em style={{ fontStyle: 'italic', color: 'var(--rust)' }}>live</em>
+                Device<br />is <em style={{ fontStyle: 'italic' }}>live</em>
               </h2>
               <p style={{ fontSize: 13, color: 'var(--muted)', fontWeight: 300, marginBottom: 40, lineHeight: 1.6, maxWidth: 280 }}>
                 <strong style={{ fontFamily: 'DM Mono, monospace', fontSize: 11 }}>{deviceId}</strong> — &ldquo;{name}&rdquo; has been paired. Upload a photo to get started.
