@@ -55,7 +55,7 @@ export default function DashboardGrid({
     name,
 }: DashboardGridProps) {
     return (
-        <div style={{ padding: "32px", maxWidth: 1400, margin: "0 auto", width: "100%" }}>
+        <div style={{ padding: "32px", width: "100%" }}>
             {/* Page header */}
             <div
                 style={{
@@ -111,9 +111,10 @@ export default function DashboardGrid({
 
             {/* Summary stats */}
             <div
+                className="memry-stats-grid"
                 style={{
                     display: "grid",
-                    gridTemplateColumns: "repeat(3, 1fr)",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
                     border: "1px solid var(--border)",
                     marginBottom: 32,
                     background: "var(--paper)",

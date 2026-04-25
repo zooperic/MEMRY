@@ -1,21 +1,22 @@
-import type { Metadata } from 'next'
-import './globals.css'
+import Sidebar from '@/components/layout/Sidebar'
+import { createServerClientInstance } from '@/lib/supabase-server'
+import { redirect } from 'next/navigation'
 
-export const metadata: Metadata = {
-  title: 'MEMRY — A digital showroom for memories',
-  description: 'WiFi e-ink fridge magnet. Put a photo on the fridge, keep it there.',
-}
+export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
+  const supabase = await createServerClientInstance()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) redirect('/auth')
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const name    = user.user_metadata?.full_name ?? user.email?.split('@')[0] ?? 'You'
+  const initial = name[0]?.toUpperCase() ?? 'A'
+
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Space+Grotesk:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
-      </head>
-      <body>{children}</body>
-    </html>
+    <div style={{ display: 'flex', minHeight: '100vh' }}>
+      <Sidebar userName={name} userInitial={initial} />
+      <div className="memry-main" style={{ flex: 1, minHeight: "100vh", width: '100%' }}>
+        {children}
+      </div>
+    </div>
   )
 }
+export const dynamic = 'force-dynamic'

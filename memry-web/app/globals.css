@@ -138,15 +138,37 @@ html, body {
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
 /* ══════════════════════════════════════════════════════════
-   RESPONSIVE — mobile only, desktop fills naturally
+   RESPONSIVE — comprehensive breakpoint system
    ══════════════════════════════════════════════════════════ */
 
+/* Sidebar positioning for desktop */
+.memry-sidebar { 
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.memry-main {
+  margin-left: 220px;
+}
+
+/* Tablet (769px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .memry-stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+  }
+}
+
+/* Tablet and below (≤768px) - hide sidebar, full width content */
 @media (max-width: 768px) {
   .memry-sidebar { display: none !important; }
   .memry-main    { margin-left: 0 !important; }
 
   .memry-upload-shell  { grid-template-columns: 1fr !important; }
   .memry-device-grid   { grid-template-columns: 1fr !important; }
+  .memry-stats-grid    { grid-template-columns: 1fr !important; }
 
   .memry-hero { 
     grid-template-columns: 1fr !important; 
@@ -170,7 +192,16 @@ html, body {
   .memry-pol-image { width: 196px !important; height: 294px !important; }
 }
 
+/* Mobile (≤480px) */
 @media (max-width: 480px) {
   .memry-polaroid  { width: 200px !important; }
   .memry-pol-image { width: 176px !important; height: 264px !important; }
+}
+
+/* Desktop wide screens (>1400px) - let content breathe but cap extremes */
+@media (min-width: 1400px) {
+  .memry-main > div {
+    padding-left: clamp(32px, 4vw, 80px);
+    padding-right: clamp(32px, 4vw, 80px);
+  }
 }

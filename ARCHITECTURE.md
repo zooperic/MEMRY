@@ -45,9 +45,16 @@ Rim ledge + back panel (1.5mm PLA)
 - **Splash resistance:** silicone sealant in gasket groove + conformal coat on electronics
 
 ### Display Decision
-- **Confirmed:** Waveshare 3.6" E Ink Spectra 6 (E6) — 600×400px, 6-color, SPI, ~19s refresh
-  - Active area: 84.6×56.4mm · Driver chip: TBC from PCB sticker on arrival
-  - Color encoding: 4bpp packed, 2px/byte (Black=0x0, White=0x1, Green=0x2, Blue=0x3, Red=0x4, Yellow=0x5)
+- **Confirmed:** Waveshare 3.6" E-Paper HAT+ (E) — SKU 32650
+  - Panel: Spectra 6 (E6) — 6-pigment ACeP technology
+  - Resolution: 600×400px (landscape) → 400×600px (portrait mounted in shell)
+  - Active area: 84.6×56.4mm
+  - Driver chip: UC8253 (confirmed from PCB + datasheet)
+  - Interface: 4-line SPI (switch set to position 0)
+  - Refresh time: ~19 seconds full update
+  - Color encoding: 4bpp packed, 2px/byte (6 colors: B/W/G/B/R/Y)
+  - Power requirements: PWR pin MUST tie to 3.3V (critical!)
+  - Portrait mounting: setRotation(1) in firmware for landscape shell
   - Portrait mounted in landscape shell via setRotation(1)
 - **Dropped:** Waveshare 4.2" B&W (original plan — superseded by color)
 
@@ -96,7 +103,7 @@ Boot / wake from deep sleep
   ├─ GET /api/device/{DEVICE_ID}/current-image
   │    → check ETag (stored in RTC memory)
   │    → if unchanged: skip render, sleep immediately
-  ├─ Render BMP to e-ink (GxEPD2 library) — ~4s full refresh
+├─ Render BMP to e-ink (custom epd3in6e_driver.h) — ~19s full refresh
   ├─ Display hibernate (0µA)
   └─ Deep sleep SLEEP_INTERVAL (default 4h, from X-Sleep-Hours header)
 ```
@@ -112,10 +119,18 @@ uint64_t    SLEEP_US   = 4ULL * 3600 * 1000000;
 
 ### Libraries
 ```
-GxEPD2        E-ink driver (supports Waveshare 4" Spectra 6 + 4.2" B&W)
+GxEPD2       (NOT USED NOW) E-ink driver (supports Waveshare 4" Spectra 6 + 4.2" B&W) 
 HTTPClient    HTTP requests
 ArduinoJson   Parse response headers
 Preferences   Store WiFi creds + device ID in flash
+WiFi          Network connectivity (ESP32 built-in)
+WebServer     Provisioning portal (ESP32 built-in)
+DNSServer     Captive portal for WiFi setup (ESP32 built-in)
+
+Custom drivers (no external deps):
+epd3in6e_driver.h    SPI driver for Waveshare 3.6" Spectra 6
+wifi_provision.h     Captive portal WiFi provisioning
+bmp_render.h         Direct framebuffer rendering (no font libs)
 ```
 
 ---
