@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, use } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { createBrowserClient } from '@/lib/supabase-browser'
 import Topbar from '@/components/layout/Topbar'
@@ -41,8 +41,8 @@ function timeAgo(ts: string | null) {
   return `${Math.round(h / 24)}d ago`
 }
 
-export default function DeviceSettingsPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id: deviceId } = use(params)
+export default function DeviceSettingsPage({ params }: { params: { id: string } }) {
+  const { id: deviceId } = params
   const router   = useRouter()
   const supabase = createBrowserClient()
 
