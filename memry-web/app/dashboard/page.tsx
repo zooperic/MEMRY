@@ -12,28 +12,36 @@ async function getDevices(
   supabase: Awaited<ReturnType<typeof createServerClientInstance>>,
   userId: string
 ) {
+  // Fetch devices (no nested select)
   const { data: owned } = await supabase
     .from("devices")
-    .select(
-      `
-      id, name, sleep_hours, display_type, created_at,
-      photos(id, is_active, preview_path, caption)
-    `
-    )
+    .select("id, name, sleep_hours, display_type, created_at")
     .eq("owner_id", userId);
+
+  // Fetch photos separately
+  const deviceIds = (owned ?? []).map((d) => d.id);
+  const { data: allPhotos } = await supabase
+    .from("photos")
+    .select("id, device_id, is_active, preview_path, caption")
+    .in("device_id", deviceIds);
+
+  // Map photos to devices
+  const ownedWithPhotos = (owned ?? []).map((device) => ({
+    ...device,
+    photos: (allPhotos ?? []).filter((p) => p.device_id === device.id),
+  }));
 
   const { data: contrib } = await supabase
     .from("contributors")
-    .select("device_id, devices(id, name)")
+    .select("device_id")
     .eq("user_id", userId);
 
-  const deviceIds = (owned ?? []).map((d) => d.id);
   const { data: pings } = await supabase
     .from("device_pings")
     .select("device_id, last_request, battery_mv")
     .in("device_id", deviceIds);
 
-  return { owned: owned ?? [], contrib: contrib ?? [], pings: pings ?? [] };
+  return { owned: ownedWithPhotos, contrib: contrib ?? [], pings: pings ?? [] };
 }
 
 export default async function DashboardPage() {
